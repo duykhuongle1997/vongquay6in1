@@ -1,6 +1,6 @@
 /* --- CẤU HÌNH --- */
 // 1. Link Google Script (Dữ liệu khách hàng)
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwI6io9S9lt2TiXAgwAUcgyXO2KHr65tgG9H1mw5ey2uN1rfbcLJt0vnjDVTSq8Vv27/exec'; 
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzM8qT3V0_w4Tc1-Ixx4ML9ITmXaTRS2aZibetJVoQpFYxnSU9tELzqzpWBZoUPOT8iXg/exec'; 
 
 // 2. Link Mua Hàng (Sản phẩm 6in1) - HÃY DÁN LINK CỦA BẠN VÀO DƯỚI ĐÂY
 const productLink = 'https://www.cobote.vn/collections/tat-ca-san-pham-cobote'; 
@@ -172,4 +172,5 @@ function disableGame() {
     spinBtn.style.opacity = "0.5";
     spinBtn.style.pointerEvents = 'none'; 
     playedMsg.style.display = "block"; 
+
 }
