@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vòng Quay May Mắn - Cobote</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Hình nền -->
+    <div class="background"></div>
+
+    <!-- Khu vực vòng quay -->
+    <div class="wheel-container">
+        <div id="wheel"></div>
+        <div id="spin-btn">
+            <img src="Assets/spin-btn.png" alt="Spin">
+        </div>
+        <div id="played-msg" class="played-overlay">Bạn đã hết lượt quay!</div>
+    </div>
+
+    <!-- 1. POPUP CÂU HỎI (Hiện ngay khi vào trang) -->
+    <div id="quizModal" class="modal">
+        <div class="modal-content quiz-content">
+            <div class="modal-title">CÂU HỎI MAY MẮN</div>
+            <p class="modal-text" style="text-align: left; font-weight: bold;">
+                Công dụng nào sau đây KHÔNG có trong 6 công dụng chính của Tinh Chất Dưỡng Tóc Đa Năng 6in1?
+            </p>
+            
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="checkAnswer(1)">A. Dưỡng sâu và giảm gãy rụng</button>
+                <button class="quiz-btn" onclick="checkAnswer(2)">B. Bảo vệ tóc khỏi nhiệt và hóa chất </button>
+                <button class="quiz-btn" onclick="checkAnswer(3)">C. Giúp tóc mềm mượt tự nhiên </button>
+                <!-- Đã bỏ class in đậm, giờ nút này giống hệt nút khác -->
+                <button class="quiz-btn" onclick="checkAnswer(4)">D. Làm nặng tóc và bết dính</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. POPUP THÔNG BÁO NHẬN LƯỢT QUAY (MỚI THÊM) -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-title">CHÍNH XÁC!</div>
+            <p class="modal-text">Chúc mừng bạn đã trả lời đúng câu hỏi.</p>
+            
+            <!-- Ô thông báo nhận lượt quay -->
+            <div class="code-box" style="background: #e8f5e9; color: #2e7d32; border-color: #2e7d32; font-size: 18px;">
+                Bạn nhận được <br> 1 LƯỢT QUAY CỦA COBOTE
+            </div>
+            
+            <button id="reward-close-btn" class="action-btn">QUAY NGAY</button>
+        </div>
+    </div>
+
+    <!-- 3. POPUP NHẬP THÔNG TIN (Hiện khi bấm nút quay) -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-title">THÔNG TIN NHẬN QUÀ</div>
+            <p class="modal-text">Vui lòng điền thông tin để hệ thống ghi nhận.</p>
+            
+            <form id="customerForm" name="submit-to-google-sheet">
+                <input type="text" name="Họ tên" class="input-field" placeholder="Họ và tên" required>
+                <input type="tel" name="Số điện thoại" class="input-field" placeholder="Số điện thoại" required pattern="[0-9]{10}" title="Vui lòng nhập đúng 10 số điện thoại">
+                
+                <button type="submit" id="submit-btn" class="action-btn">GỬI & QUAY NGAY</button>
+                <div id="loading-text" style="display:none; margin-top:10px; color:#d35400; font-weight:bold;">Đang gửi dữ liệu...</div>
+            </form>
+        </div>
+    </div>
+
+     <!-- 4. POPUP KẾT QUẢ (CÓ 2 NÚT) -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-title">XIN CHÚC MỪNG!</div>
+            <p class="modal-text">Bạn nhận được <b>voucher 15%</b> khi mua tại website Cobote.<br>Vui lòng nhập mã dưới đây để nhận khuyến mãi:</p>
+            
+            <!-- Mã code có ID để copy -->
+            <div id="voucher-code" class="code-box">6IN1CBT251212</div>
+            
+            <br>
+            
+            <!-- Khu vực 2 nút bấm -->
+            <div class="btn-group">
+                <button id="copy-btn" class="action-btn copy-btn">COPY MÃ</button>
+                <button id="use-now-btn" class="action-btn use-btn">DÙNG NGAY</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
